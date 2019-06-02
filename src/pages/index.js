@@ -13,19 +13,14 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <section className="hero is-link is-fullheight-with-navbar">
+        <section className="hero is-link is-medium">
           <div className="hero-body">
             <div className="container">
               <p className="title">
                Hello
-
               </p>
-
             </div>
-
           </div>
-         
-
         </section>
         <SEO title="All posts" />
         
