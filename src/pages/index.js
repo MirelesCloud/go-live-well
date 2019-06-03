@@ -11,9 +11,14 @@ class BlogIndex extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const posts = data.allMarkdownRemark.edges
 
+    console.log(data)
+
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <section className="hero is-link is-medium">
+        
+        <section className="hero is-medium" style={{
+                    backgroundImage: `url(${data.banner.childImageSharp.fluid.src})`
+                }}>
           <div className="hero-body">
             <div className="container">
               <p className="title">
@@ -72,6 +77,13 @@ export const pageQuery = graphql`
             title
             description
           }
+        }
+      }
+    }
+    banner: file(absolutePath: { regex: "/joseph-barrientos-22900-unsplash.jpg/" }) {
+      childImageSharp {
+        fluid(maxWidth: 2048, quality: 100) {
+          ...GatsbyImageSharpFluid
         }
       }
     }
