@@ -1,10 +1,26 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
+import Img from "gatsby-image"
 
 import Layout from "../components/layout"
+import TestimonialBubble from "../components/testimonial-bubble"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
+import styled from "styled-components"
+
+const Profile = styled.figure`
+  margin-top: -100px;
+  padding-bottom: 50px;
+  position: relative;
+  max-width: 400px;
+  height: auto;
+  margin-left: auto;
+  margin-right: auto;
+`
+const Quotes = styled.div`
+  margin-top: 50px;
+`
 class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
@@ -28,14 +44,31 @@ class BlogIndex extends React.Component {
                 }}>
           <div className="hero-body">
             <div className="container has-text-centered">
-              <p className="title has-text-weight-normal has-text-light " style={{
+              <h1 className="title has-text-weight-normal has-text-light " style={{
                 fontSize: "5rem"
               }}>
                {siteTitle}
-              </p>
-              <h2 className="subtitle">
+              </h1>
+              <h2 className="subtitle has-text-light is-uppercase">
                 {subTitle}
               </h2>
+            </div>
+          </div>
+        </section>
+        <section className="columns">
+          <div className="column is-4">
+              <Profile >
+                <Img fluid={data.profile.childImageSharp.fluid} style={{
+                borderRadius: "50%",
+                boxShadow: "3px 3px 8px #888888"
+                }}/>
+              </Profile>
+          </div>
+          <div className="column is-8">
+            <div className="content has-text-centered">
+                <Quotes>
+                 <TestimonialBubble/>
+                </Quotes>
             </div>
           </div>
         </section>
@@ -81,6 +114,13 @@ export const pageQuery = graphql`
     hero: file(absolutePath: { regex: "/joseph-barrientos-22900-unsplash.jpg/" }) {
       childImageSharp {
         fluid(maxWidth: 2048, quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    profile: file(absolutePath: { regex: "/heather-profile.jpg/"}) {
+      childImageSharp {
+        fluid(maxWidth: 600) {
           ...GatsbyImageSharpFluid
         }
       }
