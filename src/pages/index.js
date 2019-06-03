@@ -9,6 +9,7 @@ class BlogIndex extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
+    const subTitle = data.site.siteMetadata.subTitle
     const posts = data.allMarkdownRemark.edges
 
     console.log(data)
@@ -16,14 +17,25 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         
-        <section className="hero is-medium" style={{
-                    backgroundImage: `url(${data.banner.childImageSharp.fluid.src})`
+        <section className="hero is-large effect" style={{
+                    backgroundImage: `linear-gradient(rgba(158,84,6, 0.2), rgba(20,20,20,0.3), rgba(134,45,134,0.3)),
+                    url(${data.hero.childImageSharp.fluid.src})`,
+                    backgroundPosition: "center",
+                    backgroundSize: "cover",
+                    backgroundRepeat: "no-repeat",
+                    position: "relative"
+
                 }}>
           <div className="hero-body">
-            <div className="container">
-              <p className="title">
-               Hello
+            <div className="container has-text-centered">
+              <p className="title has-text-weight-normal has-text-light " style={{
+                fontSize: "5rem"
+              }}>
+               {siteTitle}
               </p>
+              <h2 className="subtitle">
+                {subTitle}
+              </h2>
             </div>
           </div>
         </section>
@@ -63,6 +75,14 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+        subtitle
+      }
+    }
+    hero: file(absolutePath: { regex: "/joseph-barrientos-22900-unsplash.jpg/" }) {
+      childImageSharp {
+        fluid(maxWidth: 2048, quality: 100) {
+          ...GatsbyImageSharpFluid
+        }
       }
     }
     allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
@@ -77,13 +97,6 @@ export const pageQuery = graphql`
             title
             description
           }
-        }
-      }
-    }
-    banner: file(absolutePath: { regex: "/joseph-barrientos-22900-unsplash.jpg/" }) {
-      childImageSharp {
-        fluid(maxWidth: 2048, quality: 100) {
-          ...GatsbyImageSharpFluid
         }
       }
     }

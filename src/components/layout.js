@@ -1,4 +1,5 @@
 import React from "react"
+import Navbar from "./navbar"
 import "../styles/style.scss"
 
 class Layout extends React.Component {
@@ -7,6 +8,7 @@ class Layout extends React.Component {
     
     return (
       <div>
+        <Navbar/>
         
         <main>{children}</main>
         <footer>
