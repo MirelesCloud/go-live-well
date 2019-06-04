@@ -33,14 +33,13 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         
-        <section className="hero is-large effect" style={{
+        <section className="hero is-large" style={{
                     backgroundImage: `linear-gradient(rgba(158,84,6, 0.2), rgba(20,20,20,0.3), rgba(134,45,134,0.3)),
                     url(${data.hero.childImageSharp.fluid.src})`,
-                    backgroundPosition: "center",
+                    backgroundPosition: "top",
                     backgroundSize: "cover",
                     backgroundRepeat: "no-repeat",
                     position: "relative"
-
                 }}>
           <div className="hero-body">
             <div className="container has-text-centered">
@@ -56,7 +55,7 @@ class BlogIndex extends React.Component {
           </div>
         </section>
         <section className="columns">
-          <div className="column is-4">
+          <div className="column is-4 is-offset-2">
               <Profile >
                 <Img fluid={data.profile.childImageSharp.fluid} style={{
                 borderRadius: "50%",
@@ -64,13 +63,37 @@ class BlogIndex extends React.Component {
                 }}/>
               </Profile>
           </div>
-          <div className="column is-8">
+          <div className="column is-4">
             <div className="content has-text-centered">
                 <Quotes>
                  <TestimonialBubble/>
                 </Quotes>
             </div>
           </div>
+        </section>
+        <section className="hero is-large" style={{
+              backgroundImage: `linear-gradient(rgba(158,84,6, 0.2), rgba(20,20,20,0.3), rgba(134,45,134,0.3)),
+              url(${data.hero.childImageSharp.fluid.src})`,
+              backgroundPosition: "center",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              position: "relative"
+
+          }}>
+            <div className="hero-body" style={{padding: "150px 50px 150px"}}>
+              <div className="container has-text-light" >
+              <h1 className="is-size-2">Welcome! - ¡Bienvenidos!</h1>
+              <br/>
+              <p className="is-size-4">My mission is to help heal clients and empower them to attain the optimal health they want and deserve.</p>
+              <hr/>
+              <p>I provide education and tools for you to achieve your optimal health. Humans are more than just a body part or a dis-ease. There is an interconnectedness of the body, mind and soul, and each are affected by the other. So our therapies work with the whole person.</p>
+              <p>¡Hablo español!</p>
+
+
+
+              </div>
+
+            </div>
         </section>
         <SEO title="All posts" />
         
