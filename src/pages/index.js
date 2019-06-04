@@ -47,7 +47,7 @@ class BlogIndex extends React.Component {
       <Layout location={this.props.location} title={siteTitle}>
         
         <section className="hero is-large" style={{
-                    backgroundImage: `linear-gradient(rgba(158,84,6, 0.2), rgba(20,20,20,0.3), rgba(134,45,134,0.3)),
+                    backgroundImage: `linear-gradient(rgba(158,84,6, 0.3), rgba(20,20,20,0.4), rgba(134,45,134,0.4)),
                     url(${data.hero.childImageSharp.fluid.src})`,
                     backgroundPosition: "top",
                     backgroundSize: "cover",
@@ -85,13 +85,12 @@ class BlogIndex extends React.Component {
           </div>
         </section>
         <section className="hero is-large" style={{
-              backgroundImage: `linear-gradient(rgba(158,84,6, 0.2), rgba(20,20,20,0.3), rgba(134,45,134,0.3)),
+              backgroundImage: `linear-gradient(rgba(158,84,6, 0.3), rgba(20,20,20,0.3), rgba(134,45,134,0.3)),
               url(${data.hero.childImageSharp.fluid.src})`,
-              backgroundPosition: "center",
+              backgroundPosition: "bottom",
               backgroundSize: "cover",
               backgroundRepeat: "no-repeat",
               position: "relative"
-
           }}>
             <div className="hero-body" style={{padding: "150px 50px 150px"}}>
               <div className="container has-text-light" >
@@ -114,19 +113,37 @@ class BlogIndex extends React.Component {
         
         <section className="container">
           <div className="columns">
-            <div className="column is-4 is-offset-2">
+            <div className="column is-5 is-offset-1">
               <div className="content">
                 <About>
                   <Img fluid={data.about.childImageSharp.fluid} />
                 </About>
               </div>
             </div>
-            <div className="column is-4">
+            <div className="column is-5">
               <div className="content">
                 <h4>About Heather</h4>
                 <p>I am passionate about helping people improve their health. It is a privilege to work with each client. Each session is unique and different, based on what my client needs at the moment. I open my home office to you, which is set in a peaceful organic apple orchard in the middle of a forest near a running brook. The relaxing environment will aid in your healing experience.  Distance sessions are also available. My clients, who reside all over the United States, have found them to be very effective. Results do depend on the person, since, in many ways, they are the ones who are allowing and doing their own healing.  Feel free to contact me with any questions or concerns you might have. If you are reading this, there is a reason, and if you are ready to heal, please give me a call. I look forward to working with you!</p>
               </div>
             </div>
+          </div>
+        </section>
+        <br/>
+        <br/>
+        <section className="hero is-medium" style={{
+              backgroundImage: `linear-gradient(rgba(158,84,6, 0.5), rgba(20,20,20,0.5), rgba(134,45,134,0.3)),
+              url(${data.hero.childImageSharp.fluid.src})`,
+              backgroundPosition: "bottom",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              position: "relative"
+          }}>
+          <div className="hero-body">
+            <div className="container has-text-centered">
+              <h1 className="title has-text-light">Contact Me</h1>
+
+            </div>
+
           </div>
         </section>
         
