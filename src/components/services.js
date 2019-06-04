@@ -92,7 +92,7 @@ const Services = () => (
               <div className="columns">
                 <div className="column is-12">
                   <div className="content has-text-centered">
-                     <h1 className="">My Services</h1>
+                     <h1 className="title has-text-grey">My Services</h1>
                      <hr/>
                   </div>
                   

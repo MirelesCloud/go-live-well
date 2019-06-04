@@ -57,7 +57,7 @@ class BlogIndex extends React.Component {
                 }}>
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title has-text-weight-normal has-text-light " style={{
+              <h1 className="title has-text-weight-normal has-text-light is-uppercase" style={{
                 fontSize: "5rem"
               }}>
                {siteTitle}
@@ -107,14 +107,48 @@ class BlogIndex extends React.Component {
               </div>
             </div>
         </section>
-        <br/>
+       <br/>
+       <br/>
         <section className="container">
           <Services/>
+          <br/>
           <hr/>
         </section>
         <br/>
         <br/>
-        
+        <section className="container">
+          <div className="columns is-multiline">
+            <div className="content">
+              <SEO title="All posts" />
+              {posts.map(({ node }) => {
+                const title = node.frontmatter.title || node.fields.slug
+                return (
+                  <div className="column is-6" key={node.fields.slug}>
+                    <h3
+                      style={{
+                        marginBottom: rhythm(1 / 4),
+                      }}
+                    >
+                      <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
+                        {title}
+                      </Link>
+                    </h3>
+                    <small>{node.frontmatter.date}</small>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: node.frontmatter.description || node.excerpt,
+                      }}
+                    />
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+          <br/>
+          <hr/>
+        </section>
+        <br/>
+        <br/>
         <section className="container">
           <div className="columns">
             <div className="column is-5 is-offset-1">
@@ -149,40 +183,15 @@ class BlogIndex extends React.Component {
           <div className="hero-body">
             <div className="container has-text-centered">
               <h1 className="title has-text-light">Work With Me</h1>
-              <Link to="/contact" className="button is-outlined">Contact Me</Link>
+              <Link to="/contact" className="button is-primary is-outlined">Contact Me</Link>
               <br/>
               <br/>
               <p className="has-text-light">or</p>
               <br/>
-              <div className="button">Book an Appointment</div>
+              <div className="button is-primary is-outlined">Book an Appointment</div>
             </div>
           </div>
         </section>
-        
-        <SEO title="All posts" />
-        
-        {posts.map(({ node }) => {
-          const title = node.frontmatter.title || node.fields.slug
-          return (
-            <div key={node.fields.slug}>
-              <h3
-                style={{
-                  marginBottom: rhythm(1 / 4),
-                }}
-              >
-                <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                  {title}
-                </Link>
-              </h3>
-              <small>{node.frontmatter.date}</small>
-              <p
-                dangerouslySetInnerHTML={{
-                  __html: node.frontmatter.description || node.excerpt,
-                }}
-              />
-            </div>
-          )
-        })}
       </Layout>
     )
   }
