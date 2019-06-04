@@ -9,12 +9,9 @@ class Layout extends React.Component {
     return (
       <div>
         <Navbar/>
-        
         <main>{children}</main>
         <footer className="footer">
           <div className="content has-text-centered">
-          
-           
            <small><strong>Disclaimer:</strong> Heather Watson does not claim to treat or heal specific conditions; the effectiveness of her services are based on an individual’s ability to heal, and the results will vary. Ultimately, if the body can, it will heal itself, and these services may accelerate that process. These services do not take the place of a visit to your medical doctor.</small>
            <hr/>
            © {new Date().getFullYear()}, <strong>Go Live Well</strong> - 

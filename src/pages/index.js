@@ -148,12 +148,14 @@ class BlogIndex extends React.Component {
           }}>
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title has-text-light">Contact Me</h1>
+              <h1 className="title has-text-light">Work With Me</h1>
+              <Link to="/contact" className="button is-outlined">Contact Me</Link>
               <br/>
-              <Link to="/contact" className="button is-outlined is-inverted">Contact</Link>
-
+              <br/>
+              <p className="has-text-light">or</p>
+              <br/>
+              <div className="button">Book an Appointment</div>
             </div>
-
           </div>
         </section>
         
