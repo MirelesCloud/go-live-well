@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 
 import Layout from "../components/layout"
 import TestimonialBubble from "../components/testimonial-bubble"
+import Services from "../components/services"
 import SEO from "../components/seo"
 import { rhythm } from "../utils/typography"
 
@@ -20,6 +21,18 @@ const Profile = styled.figure`
 `
 const Quotes = styled.div`
   margin-top: 50px;
+`
+
+const About = styled.figure`
+  border-radius: 100%;
+  overflow: hidden;
+  position: relative;
+  max-width: 400px;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+  transition: transform .9s;
+  box-shadow: 3px 3px 8px #888888;
 `
 class BlogIndex extends React.Component {
   render() {
@@ -88,13 +101,35 @@ class BlogIndex extends React.Component {
               <hr/>
               <p>I provide education and tools for you to achieve your optimal health. Humans are more than just a body part or a dis-ease. There is an interconnectedness of the body, mind and soul, and each are affected by the other. So our therapies work with the whole person.</p>
               <p>¡Hablo español!</p>
-
-
-
               </div>
-
             </div>
         </section>
+        <br/>
+        <section className="container">
+          <Services/>
+          <hr/>
+        </section>
+        <br/>
+        <br/>
+        
+        <section className="container">
+          <div className="columns">
+            <div className="column is-4 is-offset-2">
+              <div className="content">
+                <About>
+                  <Img fluid={data.about.childImageSharp.fluid} />
+                </About>
+              </div>
+            </div>
+            <div className="column is-4">
+              <div className="content">
+                <h4>About Heather</h4>
+                <p>I am passionate about helping people improve their health. It is a privilege to work with each client. Each session is unique and different, based on what my client needs at the moment. I open my home office to you, which is set in a peaceful organic apple orchard in the middle of a forest near a running brook. The relaxing environment will aid in your healing experience.  Distance sessions are also available. My clients, who reside all over the United States, have found them to be very effective. Results do depend on the person, since, in many ways, they are the ones who are allowing and doing their own healing.  Feel free to contact me with any questions or concerns you might have. If you are reading this, there is a reason, and if you are ready to heal, please give me a call. I look forward to working with you!</p>
+              </div>
+            </div>
+          </div>
+        </section>
+        
         <SEO title="All posts" />
         
         {posts.map(({ node }) => {
@@ -144,6 +179,13 @@ export const pageQuery = graphql`
     profile: file(absolutePath: { regex: "/heather-profile.jpg/"}) {
       childImageSharp {
         fluid(maxWidth: 600) {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    about: file(absolutePath: { regex: "/heather-watson.jpg/"}) {
+      childImageSharp {
+        fluid(maxWidth: 500) {
           ...GatsbyImageSharpFluid
         }
       }
