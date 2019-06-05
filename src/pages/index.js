@@ -284,7 +284,7 @@ export const pageQuery = graphql`
     }
     logo: file(absolutePath: { regex: "/go-live-well-white.png/"}) {
       childImageSharp {
-        fluid(maxWidth: 600) {
+        fluid(maxWidth: 100) {
           ...GatsbyImageSharpFluid
         }
       }
