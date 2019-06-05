@@ -44,7 +44,6 @@ class BlogIndex extends React.Component {
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        
         <section className="hero is-large" style={{
                     backgroundImage: `linear-gradient(rgba(158,84,6, 0.4), rgba(20,20,20,0.4), rgba(134,45,134,0.4)),
                     url(${data.hero.childImageSharp.fluid.src})`,
@@ -67,21 +66,25 @@ class BlogIndex extends React.Component {
             </div>
           </div>
         </section>
-        <section className="columns">
-          <div className="column is-4 is-offset-2">
-              <Profile >
-                <Img fluid={data.profile.childImageSharp.fluid} style={{
-                borderRadius: "50%",
-                boxShadow: "3px 3px 8px #888888"
-                }}/>
-              </Profile>
-          </div>
-          <div className="column is-4">
-            <div className="content has-text-centered">
-                <Quotes>
-                 <TestimonialBubble/>
-                </Quotes>
+        <section className="section">
+          <div className="">
+            <div className="columns">
+            <div className="column is-4 is-offset-2">
+                <Profile >
+                  <Img fluid={data.profile.childImageSharp.fluid} style={{
+                  borderRadius: "50%",
+                  boxShadow: "3px 3px 8px #888888"
+                  }}/>
+                </Profile>
             </div>
+            <div className="column is-4">
+              <div className="content has-text-centered">
+                  <Quotes>
+                  <TestimonialBubble/>
+                  </Quotes>
+              </div>
+            </div>
+           </div>
           </div>
         </section>
         <section className="hero is-large" style={{

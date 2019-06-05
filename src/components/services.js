@@ -95,7 +95,6 @@ const Services = () => (
                      <h1 className="title has-text-grey">My Services</h1>
                      <hr/>
                   </div>
-                  
                 </div>
               </div>
               <div className="columns is-multiline has-text-centered">
