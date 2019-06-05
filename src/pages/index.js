@@ -13,6 +13,12 @@ import { faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons'
 
 import styled from "styled-components"
 
+const Title = styled.h1`
+  font-size: 5rem;
+  @media(max-width: 700px) {
+    font-size: 4rem;
+  }
+`
 const Profile = styled.figure`
   margin-top: -100px;
   padding-bottom: 50px;
@@ -21,7 +27,11 @@ const Profile = styled.figure`
   height: auto;
   margin-left: auto;
   margin-right: auto;
+  @media(max-width: 700px) {
+    margin-Top: 25px;
+  }
 `
+
 const Quotes = styled.div`
   margin-top: 50px;
 `
@@ -59,11 +69,9 @@ class BlogIndex extends React.Component {
                 }}>
           <div className="hero-body">
             <div className="container has-text-centered">
-              <h1 className="title has-text-weight-normal has-text-light is-uppercase" style={{
-                fontSize: "5rem"
-              }}>
+              <Title className="title has-text-weight-normal has-text-light is-uppercase">
                {siteTitle}
-              </h1>
+              </Title>
               <h2 className="subtitle has-text-light is-uppercase">
                 {subTitle}
               </h2>
@@ -132,26 +140,26 @@ class BlogIndex extends React.Component {
             </div>
           </div>
           <SEO title="All posts" />
+            <div className="columns is-multiline">
               {posts.map(({ node }) => {
                 const title = node.frontmatter.title || node.fields.slug
                 return (
-                  <div className="columns">
-                      <div className="column is-12" key={node.fields.slug}>
-                        <h4 className="subtitle">
-                          <Link className="has-text-dark"  to={node.fields.slug}>
-                            {title}
-                          </Link>
-                        </h4>
-                        <small>{node.frontmatter.date}</small>
-                        <p
-                          dangerouslySetInnerHTML={{
-                            __html: node.frontmatter.description || node.excerpt,
-                          }}
-                        />
-                      </div>
+                  <div className="column is-3" key={node.fields.slug}>
+                    <h4 className="subtitle">
+                      <Link className="has-text-dark"  to={node.fields.slug}>
+                        {title}
+                      </Link>
+                    </h4>
+                    <small>{node.frontmatter.date}</small>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: node.frontmatter.description || node.excerpt,
+                      }}
+                    />
                   </div>
                 )
               })}
+              </div>
               <br/>
               <hr/>
           </div>          
