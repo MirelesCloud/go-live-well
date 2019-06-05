@@ -7,6 +7,10 @@ import TestimonialBubble from "../components/testimonial-bubble"
 import Services from "../components/services"
 import SEO from "../components/seo"
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons'
+
 import styled from "styled-components"
 
 const Profile = styled.figure`
@@ -194,6 +198,21 @@ class BlogIndex extends React.Component {
               <p className="has-text-light">or</p>
               <br/>
               <div className="button is-primary is-outlined">Book an Appointment</div>
+              
+              <div className="content">
+              <br/>
+                <div className="columns is-centered" >
+                  <div className="column is-1" >
+                    <a href="mailto:https://heatherwsonora@gmail.com" aria-label="e-mail"><FontAwesomeIcon icon={faEnvelope} className="fa-2x mr-3 has-text-light" /></a>
+                  </div>
+                  <div className="column is-1">
+                  <a href="https://www.linkedin.com/in/heather-watson-bab051180/" aria-label="Linkedin"><FontAwesomeIcon icon={faLinkedin} className="fa-2x mr-3 has-text-light"/></a>
+                  </div>
+                  <div className="column is-1"> 
+                    <a href="https://www.facebook.com/golivewell/" aria-label="Facebook"><FontAwesomeIcon icon={faFacebook} className="fa-2x has-text-light"/></a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
