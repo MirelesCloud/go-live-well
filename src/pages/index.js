@@ -6,7 +6,6 @@ import Layout from "../components/layout"
 import TestimonialBubble from "../components/testimonial-bubble"
 import Services from "../components/services"
 import SEO from "../components/seo"
-import { rhythm } from "../utils/typography"
 
 import styled from "styled-components"
 
@@ -112,44 +111,47 @@ class BlogIndex extends React.Component {
         <section className="container">
           <Services/>
           <br/>
-          <hr/>
+         
         </section>
         <br/>
-        <br/>
-        <section className="container">
-          <div className="columns is-multiline">
-            <div className="content">
-              <SEO title="All posts" />
+        <section className="section">
+          <div className="container">
+          <div className="columns">
+            <div className="column is-12">
+              <div className="content has-text-centered">
+                <h1 className="title has-text-grey">Latest News</h1>
+                <hr/>
+              </div>
+            </div>
+          </div>
+          <SEO title="All posts" />
               {posts.map(({ node }) => {
                 const title = node.frontmatter.title || node.fields.slug
                 return (
-                  <div className="column is-6" key={node.fields.slug}>
-                    <h3
-                      style={{
-                        marginBottom: rhythm(1 / 4),
-                      }}
-                    >
-                      <Link style={{ boxShadow: `none` }} to={node.fields.slug}>
-                        {title}
-                      </Link>
-                    </h3>
-                    <small>{node.frontmatter.date}</small>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: node.frontmatter.description || node.excerpt,
-                      }}
-                    />
+                  <div className="columns">
+                      <div className="column is-12" key={node.fields.slug}>
+                        <h4 className="subtitle">
+                          <Link className="has-text-dark"  to={node.fields.slug}>
+                            {title}
+                          </Link>
+                        </h4>
+                        <small>{node.frontmatter.date}</small>
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: node.frontmatter.description || node.excerpt,
+                          }}
+                        />
+                      </div>
                   </div>
                 )
               })}
-            </div>
-          </div>
-          <br/>
-          <hr/>
+              <br/>
+              <hr/>
+          </div>          
         </section>
         <br/>
-        <br/>
-        <section className="container">
+        <section className="section">
+       
           <div className="columns">
             <div className="column is-5 is-offset-1">
               <div className="content">
