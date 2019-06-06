@@ -176,6 +176,25 @@ class BlogIndex extends React.Component {
           </div>
           <br/>
         </section>
+        <section className="hero"  style={{
+              backgroundImage: `linear-gradient(rgba(158,84,6, 0.4), rgba(20,20,20,0.4), rgba(134,45,134,0.4)),
+              url(${data.hero.childImageSharp.fluid.src})`,
+              backgroundPosition: "top",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              position: "relative",
+              backgroundAttachment: "fixed"
+          }}>
+          <div className="hero-body">
+            <div className="container has-text-centered">
+              <div className="">
+                <Logo>
+                  <Img fluid={data.logo.childImageSharp.fluid} />
+                </Logo>
+              </div>
+            </div>
+          </div>
+        </section>
         <br/>
         <section className="section">
           <div className="container">
@@ -214,7 +233,6 @@ class BlogIndex extends React.Component {
         </section>
         <br/>
         <section className="section">
-       
           <div className="columns">
             <div className="column is-5 is-offset-1">
               <div className="content">
