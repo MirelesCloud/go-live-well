@@ -173,9 +173,7 @@ class BlogIndex extends React.Component {
               }}
               href="https://squareup.com/appointments/book/FTJHJJCD1JZEZ/heather-watson-conscious-wellness-sonora-ca" rel="nofollow">Book an Appointment
             </a>
-
           </div>
-         
           <br/>
         </section>
         <br/>

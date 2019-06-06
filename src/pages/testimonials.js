@@ -20,9 +20,7 @@ export default ({ data }) => (
               <figure>
                 <Img fluid={data.file.childImageSharp.fluid}/>
               </figure>
-
             </div>
-
           </div>
           <div className="column is-8">
            <div className="content has-text-justified">
