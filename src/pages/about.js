@@ -35,6 +35,26 @@ export default ({ data }) => (
              <p>I feel blessed to live with my husband and two daughters in beautiful, rural Sonora, located in the Sierra Foothills of California. My home office is set in the middle of an organic apple orchard. The peaceful environment is conducive to relaxation, rejuvenation and healing.
              </p>
              <p>Sessions with me can be done in person or remotely.</p>
+             <br/>
+             <a target="_top" style={{
+              backgroundColor: "#371797",
+              color: "white",
+              height: "40px",
+              textTransform: "uppercase",
+              fontFamily: "'Square Market', 'helvetica neue', helvetica, arial, sans-serif",
+              letterSpacing: "1px",
+              lineHeight: "38px",
+              padding: "0 28px",
+              borderRadius: "3px",
+              fontWeight: "500",
+              fontSize: "14px",
+              cursor: "pointer",
+              display: "inline-block",
+              boxShadow: "2px 2px 5px #888888"
+              }}
+              href="https://squareup.com/appointments/book/FTJHJJCD1JZEZ/heather-watson-conscious-wellness-sonora-ca" rel="nofollow">Book an Appointment
+            </a>
+
 
            </div>
           </div>
