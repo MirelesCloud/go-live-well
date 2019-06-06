@@ -272,12 +272,14 @@ class BlogIndex extends React.Component {
           <div className="hero-body">
             <div className="container has-text-centered">
               <h1 className="title has-text-light">Work With Me</h1>
-              <Link to="/contact" className="button is-primary is-outlined">Contact Me</Link>
+              <Link to="/contact" className="button is-link is-outlined is-inverted">Contact Me</Link>
               <br/>
               <br/>
               <p className="has-text-light">or</p>
               <br/>
-              <div className="button is-primary is-outlined">Book an Appointment</div>
+              <a className="button is-outlined is-link is-inverted" target="_top"
+                href="https://squareup.com/appointments/book/FTJHJJCD1JZEZ/heather-watson-conscious-wellness-sonora-ca" rel="nofollow">Book an Appointment
+              </a>
             </div>
           </div>
         </section>

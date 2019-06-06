@@ -10,6 +10,7 @@ class Layout extends React.Component {
     return (
       <div>
         <Navbar/>
+        <br/>
         <main>{children}</main>
         <Footer/>
       </div>
