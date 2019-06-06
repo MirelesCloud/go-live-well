@@ -63,11 +63,9 @@ class BlogIndex extends React.Component {
     const subTitle = data.site.siteMetadata.subtitle
     const posts = data.allMarkdownRemark.edges
 
-    console.log(subTitle)
-
     return (
       <Layout location={this.props.location} title={siteTitle}>
-        <section className="hero is-large" style={{
+        <section className="hero is-medium" style={{
                     backgroundImage: `linear-gradient(rgba(158,84,6, 0.4), rgba(20,20,20,0.4), rgba(134,45,134,0.4)),
                     url(${data.hero.childImageSharp.fluid.src})`,
                     backgroundPosition: "top",
@@ -150,7 +148,14 @@ class BlogIndex extends React.Component {
         </section>
        <br/>
        <br/>
-        <section className="container">
+        <section className="section" style={{
+              backgroundImage: `url(${data.background.childImageSharp.fluid.src})`,
+              backgroundPosition: "top",
+              backgroundSize: "cover",
+              backgroundRepeat: "no-repeat",
+              position: "relative",
+              backgroundAttachment: "fixed"
+          }}>
           <Services/>
           <br/>
           <br/>
@@ -302,6 +307,13 @@ export const pageQuery = graphql`
       childImageSharp {
         fluid(maxWidth: 100) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    background: file(absolutePath: {regex: "/golivewell-watermark.png/"}) {
+        childImageSharp {
+        fluid(maxWidth: 1500) {
+            ...GatsbyImageSharpFluid_tracedSVG
         }
       }
     }

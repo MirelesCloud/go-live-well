@@ -88,7 +88,7 @@ const Services = () => (
         `}
         render={data => (
           <>
-            <section>
+            <section className="container">
               <div className="columns">
                 <div className="column is-12">
                   <div className="content has-text-centered">
