@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `Heather Watson`,
-    subtitle: `Holistic Health Services - Wellness Education`,
+    subtitle: `Holistic Health Services & Wellness Education`,
     author: `Heather Watson`,
     description: `A starter blog demonstrating what Gatsby can do.`,
     siteUrl: `https://gatsby-starter-blog-demo.netlify.com/`,
