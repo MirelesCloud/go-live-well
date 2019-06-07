@@ -316,7 +316,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMarkdownRemark(
+      filter: {fileAbsolutePath: { glob: "**/content/blog/*md"}}
+      sort: { 
+      fields: [frontmatter___date], order: DESC }) {
       edges {
         node {
           excerpt
