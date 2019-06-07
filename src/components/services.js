@@ -1,5 +1,5 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { Link, StaticQuery, graphql } from "gatsby"
 import Img from "gatsby-image"
 
 import styled from "styled-components"
@@ -99,76 +99,92 @@ const Services = () => (
               </div>
               <div className="columns is-multiline has-text-centered">
               <div className="column is-3">
+                <Link to="/reiki">
                   <Item>
                     <Img fluid={data.reiki.childImageSharp.fluid} />
                   </Item>
                   <div className="content">
-                    <br/>
-                     <h5 className="has-text-grey-dark">Reiki</h5>
+                   <br/>
+                    <h5 className="has-text-grey-dark">Reiki</h5>
                   </div>
+                 </Link>
                 </div>
                 <div className="column is-3">
-                  <Item>
-                    <Img fluid={data.quantum.childImageSharp.fluid} />
-                  </Item>
-                  <div className="content">
-                    <br/>
-                     <h5 className="has-text-grey-dark">Quantum Touch</h5>
-                  </div>
+                  <Link to="/quantumtouch">
+                    <Item>
+                      <Img fluid={data.quantum.childImageSharp.fluid} />
+                    </Item>
+                    <div className="content">
+                      <br/>
+                      <h5 className="has-text-grey-dark">Quantum Touch</h5>
+                    </div>
+                  </Link>
                 </div>
                 <div className="column is-3">
-                  <Item>
-                    <Img fluid={data.allergy.childImageSharp.fluid} />
-                  </Item>
-                  <div className="content">
-                    <br/>
-                     <h5 className="has-text-grey-dark">Allergy Treatment</h5>
-                  </div>
+                  <Link to="/allergy">
+                    <Item>
+                      <Img fluid={data.allergy.childImageSharp.fluid} />
+                    </Item>
+                    <div className="content">
+                      <br/>
+                      <h5 className="has-text-grey-dark">Allergy Treatment</h5>
+                    </div>
+                  </Link>
                 </div>
                 <div className="column is-3">
-                  <Item>
-                    <Img fluid={data.intuitive.childImageSharp.fluid} />
-                  </Item>
-                  <div className="content">
-                    <br/>
-                     <h5 className="has-text-grey-dark">Intuitive Session</h5>
-                  </div>
+                  <Link to="/intuitive">
+                    <Item>
+                      <Img fluid={data.intuitive.childImageSharp.fluid} />
+                    </Item>
+                    <div className="content">
+                      <br/>
+                      <h5 className="has-text-grey-dark">Intuitive Session</h5>
+                    </div>
+                  </Link>
                 </div>
                 <div className="column is-3">
-                  <Item>
-                    <Img fluid={data.biofeedback.childImageSharp.fluid} />
-                  </Item>
-                  <div className="content">
-                    <br/>
-                     <h5 className="has-text-grey-dark">Biofeedback</h5>
-                  </div>
+                  <Link to="/biofeedback">
+                    <Item>
+                      <Img fluid={data.biofeedback.childImageSharp.fluid} />
+                    </Item>
+                    <div className="content">
+                      <br/>
+                      <h5 className="has-text-grey-dark">Biofeedback</h5>
+                    </div>
+                  </Link>
                 </div>
                 <div className="column is-3">
-                  <Item>
-                    <Img fluid={data.intuitive.childImageSharp.fluid} />
-                  </Item>
-                  <div className="content">
-                    <br/>
-                     <h5 className="has-text-grey-dark">Intuitive Session</h5>
-                  </div>
+                  <Link to="/events">
+                    <Item>
+                      <Img fluid={data.events.childImageSharp.fluid} />
+                    </Item>
+                    <div className="content">
+                      <br/>
+                      <h5 className="has-text-grey-dark">Corporate Events</h5>
+                    </div>
+                  </Link>
                 </div>
                 <div className="column is-3">
-                  <Item>
-                    <Img fluid={data.classes.childImageSharp.fluid} />
-                  </Item>
-                  <div className="content">
-                    <br/>
-                     <h5 className="has-text-grey-dark">Classes</h5>
-                  </div>
+                  <Link to="/classes">
+                    <Item>
+                      <Img fluid={data.classes.childImageSharp.fluid} />
+                    </Item>
+                    <div className="content">
+                      <br/>
+                      <h5 className="has-text-grey-dark">Classes</h5>
+                    </div>
+                  </Link>
                 </div>
                 <div className="column is-3">
-                  <Item>
-                    <Img fluid={data.emotion.childImageSharp.fluid} />
-                  </Item>
-                  <div className="content">
-                    <br/>
-                     <h5 className="has-text-grey-dark">Emotion Code</h5>
-                  </div>
+                  <Link to="/emotion-code">
+                    <Item>
+                      <Img fluid={data.emotion.childImageSharp.fluid} />
+                    </Item>
+                    <div className="content">
+                      <br/>
+                      <h5 className="has-text-grey-dark">Emotion Code</h5>
+                    </div>
+                  </Link>
                 </div>
               </div>
             </section>
