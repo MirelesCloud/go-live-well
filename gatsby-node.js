@@ -5,10 +5,25 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
+  const servicePageTemplate = path.resolve(`src/templates/services.js`)
+  
   return graphql(
     `
       {
-        allMarkdownRemark(
+        services: allMarkdownRemark(
+          filter: {fileAbsolutePath: { glob: "**/src/pages/services/*md"}}
+        ) {
+          edges {
+            node {
+              frontmatter {
+                path
+              }
+            }
+          }
+        }
+        
+        blog: allMarkdownRemark(
+          filter: {fileAbsolutePath: { glob: "**/content/blog/*md"}}
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
         ) {
@@ -19,7 +34,6 @@ exports.createPages = ({ graphql, actions }) => {
               }
               frontmatter {
                 title
-
               }
             }
           }
@@ -31,8 +45,16 @@ exports.createPages = ({ graphql, actions }) => {
       throw result.errors
     }
 
+    result.data.services.edges.forEach(({ node }) => {
+      createPage({
+        path: node.frontmatter.path,
+        component: servicePageTemplate,
+        context: {},
+      })
+    })
+
     // Create blog posts pages.
-    const posts = result.data.allMarkdownRemark.edges
+    const posts = result.data.blog.edges
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
@@ -48,7 +70,6 @@ exports.createPages = ({ graphql, actions }) => {
         },
       })
     })
-
     return null
   })
 }

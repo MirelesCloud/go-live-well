@@ -129,8 +129,8 @@ class BlogIndex extends React.Component {
               </div>
             </div>
         </section>
-       <br/>
-       <br/>
+        <br/>
+        <br/>
         <section className="section" style={{
               backgroundImage: `url(${data.background.childImageSharp.fluid.src})`,
               backgroundPosition: "top",

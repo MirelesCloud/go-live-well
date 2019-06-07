@@ -6,7 +6,7 @@ import { faLinkedin, faFacebook } from '@fortawesome/free-brands-svg-icons'
 const Footer = () => (
     <footer className="footer" style={{
         bottom: "0",
-        paddingBottom: "25px"
+        paddingBottom: "25px",
       }}>
         <div className="content has-text-centered">
           <a href="mailto:https://heatherwsonora@gmail.com" aria-label="e-mail" style={{boxShadow: "none"}}><FontAwesomeIcon icon={faEnvelope} className="fa-2x mr-3 has-text-grey" style={{marginRight: "30px"}}/></a>
