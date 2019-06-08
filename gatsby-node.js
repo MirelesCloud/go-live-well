@@ -7,10 +7,23 @@ exports.createPages = ({ graphql, actions }) => {
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const servicePageTemplate = path.resolve(`src/templates/services.js`)
   const aboutPageTemplate = path.resolve(`src/templates/about.js`)
+  const testimonialsPageTemplate = path.resolve(`src/templates/testimonials.js`)
   
   return graphql(
     `
       {
+        testimonials: allMarkdownRemark(
+          filter: {fileAbsolutePath: { glob: "**/src/pages/testimonials/*md"}}
+        ) {
+          edges {
+            node {
+              frontmatter {
+                path
+              }
+            }
+          }
+        }
+
         services: allMarkdownRemark(
           filter: {fileAbsolutePath: { glob: "**/src/pages/services/*md"}}
         ) {
@@ -57,6 +70,14 @@ exports.createPages = ({ graphql, actions }) => {
     if (result.errors) {
       throw result.errors
     }
+
+    result.data.testimonials.edges.forEach(({ node }) => {
+      createPage({
+        path: node.frontmatter.path,
+        component: testimonialsPageTemplate,
+        context: {},
+      })
+    })
 
     result.data.services.edges.forEach(({ node }) => {
       createPage({
