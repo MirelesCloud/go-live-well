@@ -1,39 +1,37 @@
 import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/layout'
+import ContactForm from '../components/contact-form'
 import Img from 'gatsby-image'
 
-export default function testimonialsTemplate({ data }) {
+export default function contactTemplate({ data }) {
   const { markdownRemark } = data
-  const { frontmatter, html } = markdownRemark
+  const { frontmatter } = markdownRemark
 
-  return  (
+  return (
     <Layout>
-      <section className="section">
+    <section className="section">
         <div className="container">
-          <div className="columns">
-            <div className="column is-12">
-              <div className="content">
-                <h1 className="title">Testimonials</h1>
-              </div>
+        <div className="columns">
+          <div className="column is-12">
+            <div className="content">
+              <h1 className="title">About Heather</h1>
             </div>
           </div>
-          <div className="columns">
-            <div className="column is-4">
-              <div className="content">
-                <figure>
-                  <Img fluid={frontmatter.image.childImageSharp.fluid}/>
-                </figure>
-              </div>
+        </div>
+        <div className="columns">
+          <div className="column is-4">
+            <div className="content">
+              <figure>
+                <Img fluid={frontmatter.image.childImageSharp.fluid} />
+              </figure>
             </div>
-            <div className="column is-8">
-             <div className="content has-text-justified">
-               <div
-                  className="blog-post-content mt-3"
-                  dangerouslySetInnerHTML={{ __html: html }}
-                />
-               <br/>
-               <a target="_top" style={{
+          </div>
+        <div className="column is-8">
+            <div className="content">
+              <ContactForm/>
+              <br/>
+              <a target="_top" style={{
                 backgroundColor: "#371797",
                 color: "white",
                 height: "40px",
@@ -51,19 +49,19 @@ export default function testimonialsTemplate({ data }) {
                 }}
                 href="https://squareup.com/appointments/book/FTJHJJCD1JZEZ/heather-watson-conscious-wellness-sonora-ca" rel="nofollow">Book an Appointment
               </a>
-             </div>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
     </Layout>
-  )
+    )
 } 
-
-export const testimonialsQuery = graphql`
+  
+export const contactQuery = graphql`
 query($path: String!) {
   markdownRemark(frontmatter: { path: { eq: $path } }) {
-    html
+
     frontmatter {
       path
       title
@@ -78,4 +76,5 @@ query($path: String!) {
   }
 }
 `
+
 

@@ -8,12 +8,13 @@ exports.createPages = ({ graphql, actions }) => {
   const servicePageTemplate = path.resolve(`src/templates/services.js`)
   const aboutPageTemplate = path.resolve(`src/templates/about.js`)
   const testimonialsPageTemplate = path.resolve(`src/templates/testimonials.js`)
+  const contactPageTemplate = path.resolve(`src/templates/contact.js`)
   
   return graphql(
     `
       {
         testimonials: allMarkdownRemark(
-          filter: {fileAbsolutePath: { glob: "**/src/pages/testimonials/*md"}}
+          filter: {fileAbsolutePath: { glob: "**/src/pages/testimonials/index.md"}}
         ) {
           edges {
             node {
@@ -25,7 +26,7 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         services: allMarkdownRemark(
-          filter: {fileAbsolutePath: { glob: "**/src/pages/services/*md"}}
+          filter: {fileAbsolutePath: { glob: "**/src/pages/services/*.md"}}
         ) {
           edges {
             node {
@@ -37,7 +38,19 @@ exports.createPages = ({ graphql, actions }) => {
         }
 
         about: allMarkdownRemark(
-          filter: {fileAbsolutePath: { glob: "**/src/pages/about/*md"}}
+          filter: {fileAbsolutePath: { glob: "**/src/pages/about/index.md"}}
+        ) {
+          edges {
+            node {
+              frontmatter {
+                path
+              }
+            }
+          }
+        }
+
+        contact: allMarkdownRemark(
+          filter: {fileAbsolutePath: { glob: "**/src/pages/contact/*.md"}}
         ) {
           edges {
             node {
@@ -94,6 +107,16 @@ exports.createPages = ({ graphql, actions }) => {
         context: {},
       })
     })
+
+    result.data.contact.edges.forEach(({ node }) => {
+      createPage({
+        path: node.frontmatter.path,
+        component: contactPageTemplate,
+        context: {},
+      })
+    })
+
+    
 
     // Create blog posts pages.
     const posts = result.data.blog.edges
