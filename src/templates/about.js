@@ -11,7 +11,7 @@ export default function aboutTemplate({ data }) {
 return (
     <Layout>
     <section className="section">
-        <div className="container">
+      <div className="container">
         <div className="columns">
           <div className="column is-12">
             <div className="content">
@@ -51,11 +51,11 @@ return (
                 }}
                 href="https://squareup.com/appointments/book/FTJHJJCD1JZEZ/heather-watson-conscious-wellness-sonora-ca" rel="nofollow">Book an Appointment
                 </a>
+              </div>
             </div>
+          </div>
         </div>
-        </div>
-        </div>
-    </section>
+      </section>
     </Layout>
     )
 } 

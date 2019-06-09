@@ -6,6 +6,7 @@ exports.createPages = ({ graphql, actions }) => {
 
   const blogPost = path.resolve(`./src/templates/blog-post.js`)
   const servicePageTemplate = path.resolve(`src/templates/services.js`)
+  const blogPageTemplate = path.resolve(`src/templates/blog.js`)
   const aboutPageTemplate = path.resolve(`src/templates/about.js`)
   const testimonialsPageTemplate = path.resolve(`src/templates/testimonials.js`)
   const contactPageTemplate = path.resolve(`src/templates/contact.js`)
@@ -37,6 +38,19 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
 
+        blog: allMarkdownRemark(
+          filter: {fileAbsolutePath: { glob: "**/src/pages/blog/index.md"}}
+        ) {
+          edges {
+            node {
+              frontmatter {
+                path
+              }
+            }
+          }
+        }
+
+
         about: allMarkdownRemark(
           filter: {fileAbsolutePath: { glob: "**/src/pages/about/index.md"}}
         ) {
@@ -61,7 +75,7 @@ exports.createPages = ({ graphql, actions }) => {
           }
         }
         
-        blog: allMarkdownRemark(
+        blogPost: allMarkdownRemark(
           filter: {fileAbsolutePath: { glob: "**/content/blog/*md"}}
           sort: { fields: [frontmatter___date], order: DESC }
           limit: 1000
@@ -100,6 +114,14 @@ exports.createPages = ({ graphql, actions }) => {
       })
     })
 
+    result.data.blog.edges.forEach(({ node }) => {
+      createPage({
+        path: node.frontmatter.path,
+        component: blogPageTemplate,
+        context: {},
+      })
+    })
+
     result.data.about.edges.forEach(({ node }) => {
       createPage({
         path: node.frontmatter.path,
@@ -119,7 +141,7 @@ exports.createPages = ({ graphql, actions }) => {
     
 
     // Create blog posts pages.
-    const posts = result.data.blog.edges
+    const posts = result.data.blogPost.edges
 
     posts.forEach((post, index) => {
       const previous = index === posts.length - 1 ? null : posts[index + 1].node
