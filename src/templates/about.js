@@ -8,7 +8,7 @@ export default function aboutTemplate({ data }) {
   const { frontmatter, html } = markdownRemark
 
 
-return (
+  return (
     <Layout>
     <section className="section">
       <div className="container">

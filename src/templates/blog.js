@@ -1,9 +1,15 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
 import Layout from "../components/layout"
+import BlogRoll from "../components/blog-roll"
+
 
 export default function blogTemplate({ data }) {
-  const posts = data.allMarkdownRemark.edges
+  const { markdownRemark } = data
+  const { frontmatter } = markdownRemark
+  
+  
   return (
     <Layout>
       <section className="section">
@@ -15,33 +21,17 @@ export default function blogTemplate({ data }) {
                 </div>
             </div>
           </div>
-          <div className="columns">
+          <div className="columns is-multiline">
             <div className="column is-4">
               <div className="content">
                 <figure>
-
+                  <Img fluid={frontmatter.image.childImageSharp.fluid}/>
                 </figure>
               </div>
             </div>
-            {posts.map(({ node }) => {
-              const title = node.frontmatter.title || node.fields.slug
-              return (
-                <div className="column is-8" key={node.fields.slug}>
-                  <h4 className="subtitle">
-                    <Link className="has-text-dark"  to={node.fields.slug}>
-                      {title}
-                    </Link>
-                  </h4>
-                  <small>{node.frontmatter.date}</small>
-                  <p
-                    dangerouslySetInnerHTML={{
-                    __html: node.frontmatter.description || node.excerpt,
-                    }}
-                  />
-                </div>
-              )
-            })}
-            
+            <div className="column is-8">
+              <BlogRoll/>
+            </div>
           </div>
         </div>
       </section>
@@ -50,30 +40,20 @@ export default function blogTemplate({ data }) {
 }
 
 export const blogQuery = graphql`
-  query {
-    site {
-        siteMetadata {
-          title
-          subtitle
-        }
-      }
-    allMarkdownRemark(
-      filter: {fileAbsolutePath: { glob: "**/content/blog/*md"}}
-      sort: { 
-      fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
+query($path: String!) {
+  markdownRemark(frontmatter: { path: { eq: $path } }) {
+    html
+    frontmatter {
+      path
+      title
+      image {
+        childImageSharp {
+          fluid(maxWidth: 650) {
+            ...GatsbyImageSharpFluid_tracedSVG
           }
         }
       }
     }
   }
+}
 `

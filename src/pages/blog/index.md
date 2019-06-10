@@ -1,5 +1,5 @@
 ---
 path: "/blog"
 title: "Blog"
-image: "../../images/contact.jpg"
+image: "../../images/neonbrand-570366-unsplash.jpg"
 ---

@@ -5,6 +5,7 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import TestimonialBubble from "../components/testimonial-bubble"
 import Services from "../components/services"
+import BlogRoll from "../components/blog-roll"
 import SEO from "../components/seo"
 
 import styled from "styled-components"
@@ -57,8 +58,7 @@ class BlogIndex extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const subTitle = data.site.siteMetadata.subtitle
-    const posts = data.allMarkdownRemark.edges
-
+  
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <section className="hero is-medium" style={{
@@ -186,37 +186,18 @@ class BlogIndex extends React.Component {
         <br/>
         <section className="section">
           <div className="container">
-          <div className="columns">
-            <div className="column is-12">
-              <div className="content has-text-centered">
-                <h1 className="title has-text-grey">Heather's Blog</h1>
-                <hr/>
+            <div className="columns">
+              <div className="column is-12">
+                <div className="content has-text-centered">
+                  <h1 className="title has-text-grey">Heather's Blog</h1>
+                  <hr/>
+                </div>
               </div>
             </div>
-          </div>
-          <SEO title="All posts" />
-            <div className="columns is-multiline">
-              {posts.map(({ node }) => {
-                const title = node.frontmatter.title || node.fields.slug
-                return (
-                  <div className="column is-3" key={node.fields.slug}>
-                    <h4 className="subtitle">
-                      <Link className="has-text-dark"  to={node.fields.slug}>
-                        {title}
-                      </Link>
-                    </h4>
-                    <small>{node.frontmatter.date}</small>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: node.frontmatter.description || node.excerpt,
-                      }}
-                    />
-                  </div>
-                )
-              })}
-              </div>
-              <br/>
-              <hr/>
+            <SEO title="All posts" />
+            <BlogRoll/>
+            <br/>
+            <hr/>
           </div>          
         </section>
         <br/>
@@ -316,23 +297,6 @@ export const pageQuery = graphql`
         }
       }
     }
-    allMarkdownRemark(
-      filter: {fileAbsolutePath: { glob: "**/content/blog/*md"}}
-      sort: { 
-      fields: [frontmatter___date], order: DESC }) {
-      edges {
-        node {
-          excerpt
-          fields {
-            slug
-          }
-          frontmatter {
-            date(formatString: "MMMM DD, YYYY")
-            title
-            description
-          }
-        }
-      }
-    }
+    
   }
 `
