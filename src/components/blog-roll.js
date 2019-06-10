@@ -6,11 +6,11 @@ class BlogRoll extends React.Component {
     const { data } = this.props
     const posts = data.allMarkdownRemark.edges
       return (
-        <div>
+        <div className="columns is-multiline">
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              <div className="column is-3" key={node.fields.slug}>
+              <div className="column" key={node.fields.slug}>
                 <h4 className="subtitle">
                     <Link className="has-text-dark"  to={node.fields.slug}>
                     {title}
@@ -18,9 +18,9 @@ class BlogRoll extends React.Component {
                 </h4>
                 <small>{node.frontmatter.date}</small>
                 <p
-                    dangerouslySetInnerHTML={{
+                  dangerouslySetInnerHTML={{
                     __html: node.frontmatter.description || node.excerpt,
-                    }}
+                  }}
                 />
               </div>
               )
@@ -41,7 +41,7 @@ export default () => (
         {
         edges {
             node {
-            excerpt
+            excerpt(pruneLength: 100)
             fields {
                 slug
             }

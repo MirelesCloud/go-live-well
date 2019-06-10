@@ -9,7 +9,6 @@ export default function blogTemplate({ data }) {
   const { markdownRemark } = data
   const { frontmatter } = markdownRemark
   
-  
   return (
     <Layout>
       <section className="section">

@@ -195,7 +195,7 @@ class BlogIndex extends React.Component {
               </div>
             </div>
             <SEO title="All posts" />
-            <BlogRoll/>
+              <BlogRoll/>
             <br/>
             <hr/>
           </div>          
