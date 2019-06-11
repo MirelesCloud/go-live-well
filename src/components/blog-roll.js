@@ -10,7 +10,7 @@ class BlogRoll extends React.Component {
           {posts.map(({ node }) => {
             const title = node.frontmatter.title || node.fields.slug
             return (
-              <div className="column" key={node.fields.slug}>
+              <div className="column is-6 has-text-centered" key={node.fields.slug}>
                 <h4 className="subtitle">
                     <Link className="has-text-dark"  to={node.fields.slug}>
                     {title}

@@ -55,12 +55,12 @@ class ContactForm extends React.Component {
           <div className="columns is-mobile is-multiline" >
             <div className="column is-6 is-full-mobile">
               <div className="field">
-                <input type="text" name="name" onChange={this.handleChange} className="input" placeholder="Your Name"/>
+                <input type="text" name="name" onChange={this.handleChange} className="input" placeholder="Name"/>
               </div>
             </div>
             <div className="column is-half-tablet is-full-mobile">
               <div className="input ">
-                <input type="email" name="email" onChange={this.handleChange} className="input" placeholder="Your Email"/>
+                <input type="email" name="email" onChange={this.handleChange} className="input" placeholder="Email"/>
               </div>
             </div>
             <div className="column is-half-tablet is-full-mobile">
