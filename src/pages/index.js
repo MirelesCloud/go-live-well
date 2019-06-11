@@ -196,6 +196,9 @@ class BlogIndex extends React.Component {
             </div>
             <SEO title="All posts" />
               <BlogRoll/>
+              <div className="has-text-centered">
+                <Link to="/blog" className="button">Read more</Link>
+              </div>
             <br/>
             <hr/>
           </div>          
