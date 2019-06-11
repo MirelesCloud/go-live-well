@@ -5,7 +5,6 @@ import Img from "gatsby-image"
 import Layout from "../components/layout"
 import TestimonialBubble from "../components/testimonial-bubble"
 import Services from "../components/services"
-import BlogRoll from "../components/blog-roll"
 import SEO from "../components/seo"
 
 import styled from "styled-components"
@@ -58,6 +57,8 @@ class BlogIndex extends React.Component {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
     const subTitle = data.site.siteMetadata.subtitle
+    const posts = data.allMarkdownRemark.edges
+
   
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -84,24 +85,31 @@ class BlogIndex extends React.Component {
             </div>
           </div>
         </section>
-        <section className="section">
+        <section className="section" style={{
+          backgroundImage: `url(${data.background.childImageSharp.fluid.src})`,
+          backgroundPosition: "top",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          position: "relative",
+          backgroundAttachment: "fixed"
+          }}>
           <div className="">
             <div className="columns">
             <div className="column is-4 is-offset-2">
                 <Profile >
                   <Img fluid={data.profile.childImageSharp.fluid} style={{
-                  borderRadius: "50%",
-                  boxShadow: "3px 3px 8px #888888"
+                    borderRadius: "50%",
+                    boxShadow: "3px 3px 8px #888888"
                   }}/>
                 </Profile>
             </div>
             <div className="column is-4">
               <div className="content has-text-centered">
-                  <Quotes>
+                <br/>
+                <br/>
+                <Quotes>
                   <TestimonialBubble/>
-                  </Quotes>
-                  <br/>
-                  <br/>
+                </Quotes>
               </div>
             </div>
            </div>
@@ -195,7 +203,26 @@ class BlogIndex extends React.Component {
               </div>
             </div>
             <SEO title="All posts" />
-              <BlogRoll/>
+            <div className="columns is-multiline">
+                {posts.map(({ node }) => {
+                  const title = node.frontmatter.title || node.fields.slug
+                  return (
+                    <div className="column" key={node.fields.slug}>
+                      <h4 className="subtitle">
+                          <Link className="has-text-dark"  to={node.fields.slug}>
+                          {title}
+                          </Link>
+                      </h4>
+                      <small>{node.frontmatter.date}</small>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: node.frontmatter.description || node.excerpt,
+                        }}
+                      />
+                    </div>
+                    )
+                  })}
+              </div>
               <div className="has-text-centered">
                 <Link to="/blog" className="button">Read more</Link>
               </div>
@@ -204,7 +231,14 @@ class BlogIndex extends React.Component {
           </div>          
         </section>
         <br/>
-        <section className="section">
+        <section className="section" style={{
+          backgroundImage: `url(${data.background.childImageSharp.fluid.src})`,
+          backgroundPosition: "top",
+          backgroundSize: "cover",
+          backgroundRepeat: "no-repeat",
+          position: "relative",
+          backgroundAttachment: "fixed"
+          }}>
           <div className="columns">
             <div className="column is-5 is-offset-1">
               <div className="content">
@@ -300,6 +334,25 @@ export const pageQuery = graphql`
         }
       }
     }
-    
+    allMarkdownRemark(
+      limit: 4
+      filter: { fileAbsolutePath: { glob: "**/content/blog/*md"}}
+      sort: {  fields: [frontmatter___date], order: DESC }
+    ) 
+    {
+    edges {
+        node {
+        excerpt(pruneLength: 100)
+        fields {
+            slug
+        }
+        frontmatter {
+            date(formatString: "MMMM DD, YYYY")
+            title
+            description
+        }
+       }
+      } 
+    }
   }
 `
