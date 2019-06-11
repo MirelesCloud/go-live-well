@@ -8,11 +8,18 @@ class Layout extends React.Component {
     const { children } = this.props
     
     return (
-      <div>
+      <div style={{
+       minHeight: "100vh",
+       position: "relative",
+      }}>
         <Navbar/>
         <br/>
         <br/>
-        <div>{children}</div>
+        <div style={{
+            paddingBottom: "17rem"
+          }}>
+          {children}
+        </div>
         <Footer/>
       </div>
     )
