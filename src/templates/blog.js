@@ -11,14 +11,7 @@ export default function blogTemplate({ data }) {
   
   return (
     <Layout>
-      <section className="section" style={{
-              backgroundImage: `url(${frontmatter.background.childImageSharp.fluid.src})`,
-              backgroundPosition: "top",
-              backgroundSize: "cover",
-              backgroundRepeat: "no-repeat",
-              position: "relative",
-              backgroundAttachment: "fixed"
-          }}>
+      <section className="section">
         <div className="container">
             <div className="columns">
             <div className="column is-12">
@@ -56,13 +49,6 @@ query($path: String!) {
         childImageSharp {
           fluid(maxWidth: 650) {
             ...GatsbyImageSharpFluid_tracedSVG
-          }
-        }
-      }
-      background {
-        childImageSharp {
-          fluid(maxWidth: 2048) {
-            ...GatsbyImageSharpFluid
           }
         }
       }
