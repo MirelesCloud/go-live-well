@@ -55,34 +55,39 @@ class ContactForm extends React.Component {
           <div className="columns is-mobile is-multiline" >
             <div className="column is-6 is-full-mobile">
               <div className="field">
+                <label className="label">Name</label>
                 <input type="text" name="name" onChange={this.handleChange} className="input" placeholder="Name"/>
               </div>
             </div>
             <div className="column is-half-tablet is-full-mobile">
-              <div className="input ">
+              <div className="field">
+                <label className="label">Email</label>
                 <input type="email" name="email" onChange={this.handleChange} className="input" placeholder="Email"/>
               </div>
             </div>
             <div className="column is-half-tablet is-full-mobile">
               <div className="field ">
+                <label className="label">Phone</label>
                 <input type="text" name="phone" onChange={this.handleChange} className="input"  placeholder="Phone"/>
               </div>
             </div>
             <div className="column is-half-tablet is-full-mobile">
               <div className="field">
+                <label className="label">Subject</label>
                 <input type="text" name="subject" onChange={this.handleChange} className="input" placeholder="Subject"/>
               </div>
             </div>
             <div className="column is-12">
               <div className="field ">
-                <textarea name="message" onChange={this.handleChange} className="input is-large" placeholder="Message" ></textarea>
+                <label className="label">Message</label>
+                <textarea name="message" onChange={this.handleChange} className="textarea" placeholder="Message" ></textarea>
               </div>
             </div>
           </div>
           <div className="contact-section-btn text-center">
             <div className="form-group ">
               <input id="form_botcheck" name="form_botcheck" className="form-control" type="hidden" value=""/>
-              <button className="btn btn-dark" type="submit" data-loading-text="Please wait...">send message</button>
+              <button className="btn btn-dark" type="submit" data-loading-text="Please wait...">Send</button>
             </div>
           </div>
         </form>

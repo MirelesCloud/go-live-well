@@ -15,7 +15,7 @@ export default function contactTemplate({ data }) {
           <div className="columns">
             <div className="column is-12">
               <div className="content">
-                <h1 className="title">About Heather</h1>
+                <h1 className="title">Contact Me</h1>
               </div>
             </div>
           </div>
