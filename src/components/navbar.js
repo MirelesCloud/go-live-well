@@ -29,7 +29,7 @@ class Navbar extends React.Component {
 
   render() {
     return (
-      <nav className="navbar is-dark is-fixed-top">
+      <nav className="navbar is-light is-fixed-top">
         <div className="navbar-brand has-navbar-fixed-top">
           <div 
             className={`navbar-burger burger ${this.state.navBarActiveClass}`} 
@@ -47,7 +47,7 @@ class Navbar extends React.Component {
               <div className="navbar-link">
                Services
               </div>
-              <div className="navbar-dropdown is-dark">
+              <div className="navbar-dropdown">
                 <Link to="/reiki" className="navbar-item">Reiki</Link>
                 <Link to="/quantumtouch" className="navbar-item">Quantum Touch</Link>
                 <Link to="/allergy" className="navbar-item">Allergy Treatment</Link>
@@ -63,7 +63,23 @@ class Navbar extends React.Component {
             <Link to="/testimonials" className="navbar-item" style={{boxShadow: "none"}}>Testimonials</Link>
             <Link to="/about" className="navbar-item" style={{boxShadow: "none"}}>About</Link>
             <a target="_top" className="navbar-item"
-              style={{boxShadow: "none"}}
+              style={{
+                marginTop: "5px",
+                backgroundColor: "#371797",
+                color: "white",
+                height: "40px",
+                textTransform: "uppercase",
+                fontFamily: "'Square Market', 'helvetica neue', helvetica, arial, sans-serif",
+                letterSpacing: "1px",
+                lineHeight: "38px",
+                padding: "0 28px",
+                borderRadius: "3px",
+                fontWeight: "500",
+                fontSize: "14px",
+                cursor: "pointer",
+                display: "inline-block",
+                boxShadow: "2px 2px 5px #888888"
+              }}
               href="https://squareup.com/appointments/book/FTJHJJCD1JZEZ/heather-watson-conscious-wellness-sonora-ca" rel="nofollow">Book an Appointment
             </a>
           </div>
