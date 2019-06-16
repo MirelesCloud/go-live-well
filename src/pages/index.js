@@ -63,7 +63,7 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <section className="hero is-medium" style={{
-                    backgroundImage: `linear-gradient(rgba(158,84,6, 0.4), rgba(20,20,20,0.4), rgba(134,45,134,0.4)),
+                    backgroundImage: `linear-gradient(rgba(153, 0, 204, 0.2), rgba(20,20,20,0.3), rgba(0,153,51,0.9)),
                     url(${data.hero.childImageSharp.fluid.src})`,
                     backgroundPosition: "top",
                     backgroundSize: "cover",
@@ -116,7 +116,7 @@ class BlogIndex extends React.Component {
           </div>
         </section>
         <section className="hero is-large" style={{
-              backgroundImage: `linear-gradient(rgba(158,84,6, 0.4), rgba(20,20,20,0.4), rgba(134,45,134,0.3)),
+              backgroundImage: `linear-gradient(rgba(153, 0, 204, 0.2), rgba(20,20,20,0.3), rgba(0,153,51,0.1)),
               url(${data.hero.childImageSharp.fluid.src})`,
               backgroundPosition: "bottom",
               backgroundSize: "cover",
@@ -173,7 +173,7 @@ class BlogIndex extends React.Component {
           <br/>
         </section>
         <section className="hero"  style={{
-              backgroundImage: `linear-gradient(rgba(158,84,6, 0.4), rgba(20,20,20,0.4), rgba(134,45,134,0.4)),
+              backgroundImage: `linear-gradient(rgba(153, 0, 204, 0.2), rgba(20,20,20,0.3), rgba(0,153,51,0.1)),
               url(${data.hero.childImageSharp.fluid.src})`,
               backgroundPosition: "top",
               backgroundSize: "cover",
@@ -262,7 +262,7 @@ class BlogIndex extends React.Component {
         <br/>
         <br/>
         <section className="hero is-medium" style={{
-              backgroundImage: `linear-gradient(rgba(158,84,6, 0.5), rgba(20,20,20,0.5), rgba(134,45,134,0.3)),
+              backgroundImage: `linear-gradient(rgba(153, 0, 204, 0.3), rgba(20,20,20,0.3), rgba(0,153,51,0.1)),
               url(${data.hero.childImageSharp.fluid.src})`,
               backgroundPosition: "bottom",
               backgroundSize: "cover",
