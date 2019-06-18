@@ -1,5 +1,6 @@
-# Conscious Wellness
-### Gatsby v2
+# Go Live Well  
+`https://golivewelll.com` Gatsby-Netlify CMS
+#### Gatsby v2
 
 ## Running in development
 `npm install`
@@ -13,7 +14,25 @@
 
 ## Dependencies and Plugins  
 * @fortawesome/fontawesome-svg-core  
-* @fortawesome/free-brands-svg-icons
+* @fortawesome/free-brands-svg-icons  
+* @fortawesome/free-solid-svg-icons  
+* @fortawesome/react-fontawesome  
+* bulma  
+* gatsby-image  
+* gatsby-plugin-feed  
+* gatsby-plugin-google-analytics  
+* gatsby-plugin-manifest  
+* gatsby-plugin-netlify-cms  
+* gatsby-plugin-offline  
+* gatsby-plugin-purgecss  
+* gatsby-plugin-react-helmet  
+* gatsby-plugin-sass  
+* gatsby-plugin-sharp 
+* gatsby-plugin-typography  
+* gatsby-remark-copy-linked-files  
+* netlify-cms-app  
+* styled-components  
+...and more
 
 
 A quick look at the top-level files and directories you'll see in a Gatsby project.
