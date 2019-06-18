@@ -1,5 +1,5 @@
 # Go Live Well  
-`https://golivewelll.com` Gatsby-Netlify CMS
+Gatsby-Netlify CMS `https://golivewell.com`
 #### Gatsby v2
 
 ## Running in development
