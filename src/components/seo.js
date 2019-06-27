@@ -58,19 +58,19 @@ function SEO({ description, lang, meta, title, subtitle }) {
           content: `website`,
         },
         {
-          name: `twitter:card`,
+          name: `facebook:card`,
           content: `summary`,
         },
         {
-          name: `twitter:creator`,
+          name: `facebook:creator`,
           content: site.siteMetadata.author,
         },
         {
-          name: `twitter:title`,
+          name: `facebook:title`,
           content: title,
         },
         {
-          name: `twitter:description`,
+          name: `facebook:description`,
           content: metaDescription,
         },
       ].concat(meta)}

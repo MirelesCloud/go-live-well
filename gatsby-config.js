@@ -3,10 +3,10 @@ module.exports = {
     title: `Heather Watson`,
     subtitle: `Holistic Health Services & Wellness Education`,
     author: `Heather Watson`,
-    description: `A starter blog demonstrating what Gatsby can do.`,
+    description: `Health services website and blog`,
     siteUrl: `https://golivewell.com/`,
     social: {
-      twitter: `kylemathews`,
+      facebook: `https://www.facebook.com/golivewell`,
     },
   },
   plugins: [
