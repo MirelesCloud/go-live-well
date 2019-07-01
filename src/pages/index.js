@@ -52,7 +52,7 @@ const About = styled.figure`
   transition: transform .9s;
   box-shadow: 3px 3px 8px #888888;
 `
-class BlogIndex extends React.Component {
+class Index extends React.Component {
   render() {
     const { data } = this.props
     const siteTitle = data.site.siteMetadata.title
@@ -289,7 +289,7 @@ class BlogIndex extends React.Component {
   }
 }
 
-export default BlogIndex
+export default Index
 
 export const pageQuery = graphql`
   query {
