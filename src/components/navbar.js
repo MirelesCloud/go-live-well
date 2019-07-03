@@ -32,7 +32,7 @@ class Navbar extends React.Component {
       <nav className="navbar is-light is-fixed-top">
         <div className="navbar-brand has-navbar-fixed-top">
           <div 
-            className={`navbar-burger burger ${this.state.navBarActiveClass}`} 
+            className="navbar-burger burger"
             onClick={() => this.toggleHamburger()
             }>
             <span aria-hidden="true"></span>
