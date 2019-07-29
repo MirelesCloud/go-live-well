@@ -3,7 +3,7 @@ Gatsby-Netlify CMS `https://golivewell.com`
 #### Gatsby v2
 
 ## Running in development
-`npm install`
+`npm install`  
 `gatsby develop`
 
 ## Running build
